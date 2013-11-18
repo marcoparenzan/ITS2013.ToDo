@@ -11,5 +11,6 @@ namespace ITS2013.BestPractices
         void Add(T item);
         T Get(Guid id);
         void Update(T item);
+        IQueryable<T> Items { get; }
     }
 }

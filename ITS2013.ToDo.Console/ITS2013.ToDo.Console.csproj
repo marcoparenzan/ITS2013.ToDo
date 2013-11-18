@@ -61,6 +61,10 @@
       <Project>{5d14577e-c712-4a15-8716-f5e90468ebd3}</Project>
       <Name>ITS2013.ToDo.RavenSupport</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ITS2013.ToDo.ReadModels\ITS2013.ToDo.ReadModels.csproj">
+      <Project>{1711b5bd-bb2b-4122-82ee-b4e3a1a7eb7a}</Project>
+      <Name>ITS2013.ToDo.ReadModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

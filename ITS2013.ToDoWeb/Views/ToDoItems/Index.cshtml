@@ -1,0 +1,97 @@
+﻿@model IEnumerable<ITS2013.ToDo.ReadModels.ToDoItemDTO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table table-striped" id="items">
+    <tr>
+        <th>
+            Data
+        </th>
+        <th>
+            Ora
+        </th>
+        <th>
+            Durata
+        </th>
+        <th>
+            Cosa
+        </th>
+        <th>
+            Stato
+        </th>
+        <th></th>
+    </tr>
+
+@*@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ora)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Durata)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cosa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stato)
+        </td>
+        <td>
+            
+            @Html.ActionLink("Edit", "Edit", new { id = item.ToDoItemId }, new { @class="btn btn-primary" })
+            @Html.ActionLink("Details", "Details", new { id = item.ToDoItemId }, new { @class="btn btn-danger" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.ToDoItemId }, new { @class="btn btn-default" })
+        </td>
+    </tr>
+}*@
+
+</table>
+@section scripts {
+
+    <script type="text/javascript">
+
+        $(function () {
+
+            $.get(
+                '@Url.Action("GetAllToDoItems", "ToDoItems")'
+                , function (items) {
+
+                    var table = $("#items");
+
+                    $(items).each(function (i, item) {
+
+                        table.append(
+                            "<tr><td>"
+                            + item.Data
+                            + "</td><td>"
+                            + item.Ora
+                            + "</td><td>"
+                            + item.Durata
+                            + "</td><td>"
+                            + item.Cosa
+                            + "</td><td>"
+                            + item.Stato
+                            + "</td><td>"
+                            + ""
+                            + "</td></tr>"
+                        );
+
+                    });
+                }
+            );
+
+        });
+
+    </script>    
+    
+}

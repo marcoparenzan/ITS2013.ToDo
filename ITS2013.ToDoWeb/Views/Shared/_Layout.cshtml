@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <link href="../../Content/bootstrap.css" rel="stylesheet" />
+    <link href="../../Content/bootstrap-theme.css" rel="stylesheet" />
+     <script src="../../Scripts/jquery-1.9.1.js"></script>
+   <script src="../../Scripts/bootstrap.js"></script>
+    @RenderSection("scripts", false)
+</head>
+
+<body>
+    <div class="container">
+
+      <!-- Static navbar -->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">ITS2013/To Do</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+            <li><a href="@Url.Action("Index", "ToDoItems")">Items</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="./">Username</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+
+    @RenderBody()
+
+    </div>
+
+</body>
+</html>

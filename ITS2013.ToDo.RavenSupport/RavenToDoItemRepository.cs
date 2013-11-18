@@ -47,12 +47,32 @@ namespace ITS2013.ToDo.RavenSupport
 
         public ToDoItem Get(Guid id)
         {
-            throw new NotImplementedException();
+            ToDoItem item = null;
+            using (var session = DocumentStore.OpenSession())
+            {
+                item = session.Load<ToDoItem>(id.ToString());
+            }
+            return item;
         }
 
         public void Update(ToDoItem item)
         {
-            throw new NotImplementedException();
+            using (var session = DocumentStore.OpenSession())
+            {
+                session.Store(item, item.ToDoItemId.ToString());
+                session.SaveChanges();
+            }
+        }
+
+        public IQueryable<ToDoItem> Items
+        {
+            get
+            {
+                using (var session = DocumentStore.OpenSession())
+                {
+                    return session.Query<ToDoItem>();
+                }
+            }
         }
     }
 }
